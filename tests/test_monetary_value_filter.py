@@ -8,6 +8,7 @@ from filters import monetary_value_filter
 WHOLE_DOLLARS_WITH_CENTS = Decimal("1.00")
 WHOLE_DOLLARS_WITHOUT_CENTS = Decimal("1")
 WHOLE_DOLLARS_WITH_4_DECIMAL_PLACES = Decimal("4.1234")
+ONLY_CENTS_WITH_3_DECIMAL_PLACES = Decimal(".123")
 
 test_parameters = {
     "Two decimal places when provided two decimal places": {
@@ -21,6 +22,10 @@ test_parameters = {
     "Four decimal places when provided with four decimal places": {
         "input": WHOLE_DOLLARS_WITH_4_DECIMAL_PLACES,
         "expected": "4.1234",
+    },
+    "Leading zero when value less than one": {
+        "input": ONLY_CENTS_WITH_3_DECIMAL_PLACES,
+        "expected": "0.123",
     }
 }
 
