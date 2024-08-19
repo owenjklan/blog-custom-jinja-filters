@@ -1,0 +1,6 @@
+Menu
+----
+Item                        Price
+{% for menu_item in menu_items %}
+{{ '%-24s' | format(menu_item.name) }}   ${{ menu_item.price }}
+{% endfor %}
